@@ -13,7 +13,7 @@ public class HolidaysWebServicePublisher {
 		// запускаем веб-сервис, передаваемый во втором аргументе
 
 		Endpoint ep = Endpoint.create(new HolidaysWebServiceImpl());
-		ep.publish("http://localhost:8085/wss/holidays");
+		ep.publish("http://localhost:8085/ws/holidays");
 
 		boolean isWsStarted = true;
 		Scanner scanner = new Scanner(System.in);

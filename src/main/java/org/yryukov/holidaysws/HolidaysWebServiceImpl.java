@@ -6,7 +6,7 @@ import javax.jws.WebService;
 //но здесь используется с параметром endpointInterface,
 //указывающим полное имя класса интерфейса нашего веб-сервиса
 @WebService(endpointInterface = "org.yryukov.holidaysws.HolidaysWebService")
-class HolidaysWebServiceImpl implements HolidaysWebService {
+public class HolidaysWebServiceImpl implements HolidaysWebService {
 
 	@Override
 	public Boolean isHoliday(String dateStr) {

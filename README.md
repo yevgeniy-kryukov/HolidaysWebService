@@ -1,1 +1,1 @@
-Holidays Web Service
+Holidays Web Service SOAP RPC
