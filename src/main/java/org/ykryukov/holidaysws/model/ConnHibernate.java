@@ -8,22 +8,34 @@ import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class ConnHibernate {
-	private static SessionFactory sessionFactory;
+	private static ConnHibernate instance;
 
-	public static Session getSession() {
-		if (sessionFactory == null) {
-			// Create typesafe ServiceRegistry object
-			StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+	private SessionFactory sessionFactory;
 
-			Metadata metadata = new MetadataSources(ssr).getMetadataBuilder().build();
+	private ConnHibernate() {
+		StandardServiceRegistry ssr = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 
-			sessionFactory = metadata.getSessionFactoryBuilder().build();
+		Metadata metadata = new MetadataSources(ssr).getMetadataBuilder().build();
+
+		sessionFactory = metadata.getSessionFactoryBuilder().build();
+	}
+
+	public static ConnHibernate getInstance() {
+		if (instance == null) {
+			synchronized (ConnHibernate.class) {
+				if (instance == null) {
+					instance = new ConnHibernate();
+				}
+			}
 		}
-
+		return instance;
+	}
+	
+	public Session getSession() {
 		return sessionFactory.openSession();
 	}
 
-	public static void closeAll() {
+	public void closeAll() {
 		if (sessionFactory != null)
 			sessionFactory.close();
 	}

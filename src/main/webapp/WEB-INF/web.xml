@@ -9,9 +9,7 @@
 
 	<servlet>
 		<servlet-name>JAXWSServlet</servlet-name>
-		<servlet-class>
-        com.sun.xml.ws.transport.http.servlet.WSServlet
-    </servlet-class>
+		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

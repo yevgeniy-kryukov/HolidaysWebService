@@ -9,7 +9,7 @@ import javax.xml.ws.Service;
 public class Client {
     public static void main(String[] args) throws MalformedURLException {
         // создаем ссылку на wsdl описание
-        URL url = new URL("http://localhost:8085/ws/holidays?wsdl");
+        URL url = new URL("http://localhost:8080/HolidaysWebService/ws/holidays?wsdl");
 
         // Параметры следующего конструктора смотрим в самом первом теге WSDL описания - definitions
         // 1-ый аргумент смотрим в атрибуте targetNamespace

@@ -10,7 +10,7 @@ public class HolidayHibernateDao implements Dao<Holiday> {
 
 	@Override
 	public Holiday findByDate(Date dt) {
-		Session session = ConnHibernate.getSession();
+		Session session = ConnHibernate.getInstance().getSession();
 		Transaction t = null;
 		Holiday holiday = null;
 
