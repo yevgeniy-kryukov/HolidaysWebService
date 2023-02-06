@@ -1,8 +1,9 @@
-package org.yryukov.holidaysws;
+package org.ykryukov.holidaysws;
 
 //это аннотации, т.е. способ отметить наши классы и методы,
 //как связанные с веб-сервисной технологией
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 
@@ -14,10 +15,10 @@ public interface HolidaysWebService {
 	/**
 //	 * Возвращает является ли дата праздничной
 	 * 
-	 * @param dateStr дата в формате yyy-mm-dd
+	 * @param dateStr дата в формате yyyy-mm-dd
 	 * @return true/false
 	 */
 	// говорим, что этот метод можно вызывать удаленно
-	@WebMethod
-	public Boolean isHoliday(String dateStr);
+	@WebMethod(operationName = "isHoliday")
+	public Boolean isHoliday(@WebParam(name = "dateStr") String dateStr);
 }

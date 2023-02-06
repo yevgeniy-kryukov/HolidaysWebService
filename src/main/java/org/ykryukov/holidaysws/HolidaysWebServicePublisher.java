@@ -1,9 +1,10 @@
-package org.yryukov.holidaysws;
+package org.ykryukov.holidaysws;
 
 //класс, для запуска веб-сервера с веб-сервисами
 import javax.xml.ws.Endpoint;
-//класс нашего веб-сервиса
-import org.yryukov.holidaysws.HolidaysWebServiceImpl;
+
+import org.ykryukov.holidaysws.HolidaysWebServiceImpl;
+
 import java.util.Scanner;
 
 public class HolidaysWebServicePublisher {
